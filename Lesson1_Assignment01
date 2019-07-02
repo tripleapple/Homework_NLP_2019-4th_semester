@@ -35,6 +35,13 @@ Ans: Based on language model, in order to reduce the complexitiy of the program,
 and omit the relations between phrases with further distance.
 
 #Practical:
+human = """
+human = 自己 寻找 活动
+自己 = 我 | 俺 | 我们 
+寻找 = 看看 | 找找 | 想找点
+活动 = 乐子 | 玩的
+"""
+
 host = """
 host = 寒暄  报数  询问  业务相关  结尾 
 报数 = 我是 | 数字 | 号 ,
@@ -50,13 +57,15 @@ host = 寒暄  报数  询问  业务相关  结尾
 具体业务 = 喝酒 | 打牌 | 打猎 | 赌博
 结尾 = 吗？
 """
-def create_grammar(grammar_str, split='=', line_split='\n'):
+
+def copy_grammar(lang, expression_split="=", line_split="\n"):
     grammar = {}
-    for line in grammar_str.split(line_split):
+    for line in lang.split(line_split):
         if not line.strip(): continue
-        exp, stmt = line.split(split)
-        grammar[exp.strip()] = [s.split() for s in stmt.split('|')]
+        phrase,expression = line.split(expression_split)
+        grammar[phrase.strip()] = [exp.split() for exp in expression.split("|")]
     return grammar
+#print(copy_grammar(host))
 
 def generate(gram, target):
     if target not in gram: return target
@@ -65,7 +74,8 @@ def generate(gram, target):
 #print(create_grammar(host))
 def generate_n(n):
     for repeat in range(n):
-        print(generate(gram=create_grammar(host), target = "host"))
+        print(generate(gram=copy_grammar(human), target = "human"))
+        print(generate(gram=copy_grammar(host), target = "host"))
 #print(create_grammar(host))
 #print(generate(gram=create_grammar(host), target = "host"))
 print(generate_n(2))
