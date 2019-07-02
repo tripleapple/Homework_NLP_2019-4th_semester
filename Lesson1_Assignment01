@@ -1,4 +1,4 @@
-
+#Basic theorietical:
 0. Can you come up out 3 sceneraies which use AI methods?
 
 Ans: {Put your answer here}
@@ -29,5 +29,41 @@ Ans:
 9. What't the 2-gram models;
 
 Ans:
+
+#Practical:
+host = """
+host = 寒暄  报数  询问  业务相关  结尾 
+报数 = 我是 | 数字 | 号 ,
+数字 = 单个数字 | 数字 单个数字
+单个数字 = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 
+寒暄 = 称谓 打招呼 | 打招呼
+称谓 = 人称 ,
+人称 = 先生 | 女士 | 小朋友
+打招呼 = 你好 | 您好 
+询问 = 请问你要 | 您需要
+业务相关 = 玩玩 具体业务
+玩玩 = 耍一耍 | 玩一玩
+具体业务 = 喝酒 | 打牌 | 打猎 | 赌博
+结尾 = 吗？
+"""
+def create_grammar(grammar_str, split='=', line_split='\n'):
+    grammar = {}
+    for line in grammar_str.split(line_split):
+        if not line.strip(): continue
+        exp, stmt = line.split(split)
+        grammar[exp.strip()] = [s.split() for s in stmt.split('|')]
+    return grammar
+
+def generate(gram, target):
+    if target not in gram: return target
+    expaned = [generate(gram, t) for t in random.choice(gram[target])]
+    return ''.join([e if e != '/n' else '\n' for e in expaned if e != 'null'])
+#print(create_grammar(host))
+def generate_n(n):
+    for repeat in range(n):
+        print(generate(gram=create_grammar(host), target = "host"))
+#print(create_grammar(host))
+#print(generate(gram=create_grammar(host), target = "host"))
+print(generate_n(2))
 
 
