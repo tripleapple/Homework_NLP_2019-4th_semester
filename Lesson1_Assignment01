@@ -1,34 +1,38 @@
 #Basic theorietical:
 0. Can you come up out 3 sceneraies which use AI methods?
+Ans: [system automatically create news release with given material,intellegence sound device understand your language and operate your 
+commands,system calculates the optimal routing to the trucks for the delivery in logistics]
 
-Ans: {Put your answer here}
 1. How do we use Github; Why do we use Jupyter and Pycharm;
+Ans: {We use Github to exchange codings with each other. The display style of the Jupyter is better, and it enables to mark with titles,
+remarks, and process the coding at the same time. Pycharm could support us to manage the coding under project style. It could manage
+different projects in different documents, while at the same time could be called each other with certain reminders.}
 
-Ans: {Put your answer here}
 2. What's the Probability Model?
+Ans: Probability model is based on the concept that incident happens often in the past is supposed to happen more often than it's expected
+in the future. 
 
-Ans:
 3. Can you came up with some sceneraies at which we could use Probability Model?
+Ans: Games such as Poker, dice; find potential risks in industrial(to check whether the probability out of control); whether forcast.
 
-Ans:
 4. Why do we use probability and what's the difficult points for programming based on parsing and pattern match?
+Ans: Probability meets the natual patterns and could solve uncertainty problems. The computing complexity will be factorial if consider all relationships.
 
-Ans:
 5. What's the Language Model;
+Ans: Based on the history languages, calculate the probability of the new languages(sentences) are reasonable by checking phrase relations probability.
 
-Ans:
 6. Can you came up with some sceneraies at which we could use Language Model?
+Ans: "Jieba" algorithm itself may have used part of the language model. Analyze the phrasing styles of a writer.
 
-Ans:
 7. What's the 1-gram language model;
+Ans: Based on language model, in order to reduce the complexitiy of the program, only consider the probabilities of each phrase and omit the relations between them.
 
-Ans:
 8. What's the disadvantages and advantages of 1-gram language model;
+Ans: It only considers the phrase probability, and does not consider the phrase relations within the sentance at all.
 
-Ans:
 9. What't the 2-gram models;
-
-Ans:
+Ans: Based on language model, in order to reduce the complexitiy of the program, only consider the probabilities of 2 neighbouring phrases,
+and omit the relations between phrases with further distance.
 
 #Practical:
 host = """
