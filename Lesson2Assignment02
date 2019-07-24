@@ -7,22 +7,23 @@ Secondly, a complicated formula could only solve the problems within very limite
 Finally, with machine learning, computer could gradually optimize the solutions with history data continuously input, which fomula could not enable.
 2. What's the disadvantages of the 1st Random Choosen methods in our course?
 
-Ans:
+Ans: The speed of the optimized solution convergence is too slow, because we haven't take advantage of the optimized value of k,b.
 3. Is the 2nd method supervised direction better than 1st one? What's the disadvantages of the 2nd supversied directin method?
 
-Ans:
+Ans: Easy to get the optimized solution converged quickly, but easily to get the local optimal solution instead of global optimal solution.
 4. Why do we use Derivative / Gredient to fit a target function?
 
-Ans:
+Ans: In order to get better solution within limited calculation steps in algorithm.
 5. In the words 'Gredient Descent', what's the Gredient and what's the Descent?
 
-Ans:
+Ans: 'Gredient'=giving a designed direct of solution set in the algorithm, direction which pushes the target function to optimized solution;
+'Descent'=target function result will gradually falls into the target direction (either min or max).
 6. What's the advantages of the 3rd gradient descent method compared to the previous methods?
 
-Ans:
+Ans: 
 7. Using the simple words to describe: What's the machine leanring.
 
-Ans:
+Ans: 
 
 Q3. Finish the search problem
 #数据预处理
