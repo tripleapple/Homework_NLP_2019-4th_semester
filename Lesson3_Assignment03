@@ -1,0 +1,59 @@
+#Part 1 Review online programming
+Sell steel to maximum price
+Code part 1: import data & pre-processing
+org_price=[1, 5, 8, 9, 10, 17, 17, 20, 24, 30, 35]
+from collections import defaultdict
+price=defaultdict(int)
+for i,p in enumerate(org_price):
+    price[i+1]=p
+print(price)
+solution=defaultdict(int)
+
+Code part 2: decoration & main function
+from collections import defaultdict
+solutiondict=defaultdict(int)
+def decoration_iteration_one_para(func):
+    def wrapper(value):
+        if value in solutiondict:
+            return solutiondict[value]
+        else:
+            result=func(value)
+            solutiondict[value]=result
+            print('run function with parameter {} once'.format(value))
+            return result
+    return wrapper
+@decoration_iteration_one_para
+def cal_price(lenth):
+    val_max, sol_max = max([(price[lenth],0)]+[(cal_price(i)+cal_price(lenth-i),i) for i in range(1,lenth)])
+    solution[lenth]=(sol_max,lenth-sol_max)
+    print(solution[lenth])
+    return val_max
+cal_price(30)
+
+#Part 2 Review online programming
+[to be finished]
+#Part 3 Finish the Solution Parse Part of Edit-Distance
+[to be finished]
+#Part 4 Reading:
+[to be finished]
+
+#Part 5 Review machine learning
+
+
+    Why do we use Derivative / Gredient to fit a target function?¶
+
+Ans: In order to approach the better solution with the quickest speed, so the greatest gredient, the fastest the speed in neighbourhood.
+
+    In the words 'Gredient Descent', what's the Gredient and what's the Descent?¶
+
+Ans:Gredient is the derivative of parameters of the parameters of the target solution funciton.
+
+    What's the advantages of the 3rd gradient descent method compared to the previous methods?
+
+Ans: the gredient could be hugh, which makes the changing rate of the solution too big. This will make the algorithm miss the optimal solution set.
+As a result, how to reduce the learning speed of the solution with calculated gredient is very critical.
+
+    Using the simple words to describe: What's the machine leanring.¶
+
+Ans: Machine learning is an algorithm, which enable the computer continuously improve the solution result by given logic according to the
+previous result under given problem model.
